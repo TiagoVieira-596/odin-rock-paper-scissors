@@ -1,12 +1,23 @@
 function getComputerChoice() {
-	let choice = Math.floor(Math.random() * 100);
-	if (choice > 66) {
+	let cpuChoice = Math.floor(Math.random() * 100);
+	if (cpuChoice > 66) {
 		return "Rock";
-	} else if (choice < 66 && choice > 33) {
+	} else if (cpuChoice < 66 && cpuChoice > 33) {
 		return "Paper";
 	} else {
 		return "Scissors";
 	}
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+	let humanChoice = prompt("What will you play?");
+	if (
+		humanChoice.toUpperCase() != "ROCK" &&
+		humanChoice.toUpperCase() != "PAPER" &&
+		humanChoice.toUpperCase() != "SCISSORS"
+	) {
+		getHumanChoice();
+	} else {
+		return humanChoice;
+	}
+}
